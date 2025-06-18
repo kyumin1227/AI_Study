@@ -23,9 +23,12 @@ scaler = StandardScaler()
 X_train_std = scaler.fit_transform(X_train)
 X_test_std = scaler.transform(X_test)
 
+# 4. 기본 설정
 num_features = X_train_std.shape[1] # 64
 num_samples = X_train_std.shape[0]  # 1437
+num_classes = 10
 
-W = np.random.randn()
-
-print(num_samples, num_features)
+# 5. 원-핫 인코딩
+one_hot = np.eye(num_classes)
+y_train_one_hot = one_hot[y_train]
+y_test_one_hot = one_hot[y_test]
